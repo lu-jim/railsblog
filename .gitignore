@@ -24,7 +24,7 @@
 /tmp/storage/*
 !/tmp/storage/
 !/tmp/storage/.keep
-
+/vendor
 /public/assets
 
 # Ignore master key for decrypting credentials and more.
