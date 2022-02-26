@@ -20,7 +20,12 @@ To get a local copy up and running follow these simple steps.
 ### Install
 - Open your console and change the current working directory into the destination for this project.
 - Type `git clone`, and then paste the URL copied in the Setup section.
-- Type Enter to finish the installation process.
+- Type Enter and then enter `cd railsblog` to enter into the project directory.
+- Run `bundle` to install the required dependencies
+- Run `rails db:setup` to run the proper migrations and generate the app schema
+
+## Run
+- Enter `rails s` to run the app server
 
 ### Testing
 - Run `rspec spec` to run the tests for this project
