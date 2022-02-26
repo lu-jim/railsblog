@@ -21,8 +21,10 @@ To get a local copy up and running follow these simple steps.
 - Open your console and change the current working directory into the destination for this project.
 - Type `git clone`, and then paste the URL copied in the Setup section.
 - Type Enter to finish the installation process.
+
 ### Testing
 - Run `rspec spec` to run the tests for this project
+
 
 ## Authors
 
