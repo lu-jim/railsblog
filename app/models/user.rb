@@ -4,6 +4,6 @@ class User < ApplicationRecord
   has_many :comments
 
   def latest_posts
-    last(3)
+    Post.last(3)
   end
 end
