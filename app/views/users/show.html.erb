@@ -1,2 +1,14 @@
-<h1> User X</h1>
-<p>Here is an individual user profile</p>
+<section>
+<%= image_tag @user.photo, class: "user-avatar", size: "128"%>
+<h1> User <%= @user.id %></h1>
+<p class="user-post-counter"> Number of posts: <%= @user.post_counter|| '0' %></p>
+</section>
+<section id="post-container">
+  <% Post.all.each do |post| %>
+    <div class="post-card"> <h2 class="post-title"><a href="/posts/<%= post.id%>">
+      <%= post.title %>
+      </a></h2>
+      <p class="post-post-counter"> Number of likes: <%= post.like_counter|| '0' %></p>
+    </div>
+  <% end %>
+</section>
