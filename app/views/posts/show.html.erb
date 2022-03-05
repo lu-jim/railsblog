@@ -1,2 +1,17 @@
-<h1>Post</h1>
-<p>Here is a comment by a user</p>
+<section class="post-container">
+<span class="post-header">
+<h1><%= @post.title %> by <%= @post.author.name %></h1>
+<p class="post-header">
+<p class="counter"> Comments: <%= @post.comment_counter|| '0' %></p>
+<p class="counter"> Likes: <%= @post.like_counter|| '0' %></p>
+</p>
+ </span>
+
+<p><%=@post.text%></p>
+</section>
+
+<section class="comment-container">
+<% @post.comments.each do |comment| %>
+<p><% comment.author_id %>: <% comment.text %></p>
+<% end %>
+</section>
