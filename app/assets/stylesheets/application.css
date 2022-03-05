@@ -52,10 +52,44 @@ h4 {
 }
 
 .container {
-  border: solid 1px lightgray;
   display: flex;
   flex-direction: column;
   width: 100vw;
   background-color: #fff;
   align-items: center;
+}
+
+.header {
+  display: flex;
+  padding-left: 10rem;
+  width: 100vw;
+  flex-direction: column;
+}
+
+#bio-container {
+  display: flex;
+  padding-left: 2rem;
+  width: 100vw;
+  flex-direction: column;
+}
+
+#post-container {
+  display: flex;
+  padding-left: 2rem;
+  width: 100vw;
+  flex-direction: column;
+}
+
+.post-card {
+  display: flex;
+  border: 1px solid lightgrey;
+  width: 70vw;
+  margin: 1rem;
+  justify-content: space-around;
+}
+
+.post-section {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }

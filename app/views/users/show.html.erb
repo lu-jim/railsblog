@@ -1,19 +1,21 @@
-<section>
-<%= image_tag @user.photo, class: "user-avatar", size: "128"%>
-<h1> User <%= @user.id %></h1>
-<p class="user-post-counter"> Number of posts: <%= @user.post_counter|| '0' %></p>
-</section>
+<%= render 'shared/user' %>
 
 <section id="bio-container">
+<h2>Bio</h2>
 <p><%= @user.bio %></p>
 </section>
 <section id="post-container">
   <% Post.all.each do |post| %>
-    <div class="post-card"> <h2 class="post-title"><a href="<%= @user.id%>/posts/<%= post.id%>">
-      <%= post.title %>
-      </a></h2>
+    <div class="post-card">
+    <h2 class="post-title"><a href="<%= @user.id%>/posts/<%= post.id%>"> <%= post.title %> </a></h2>
+    <span>
+      <p><%= post.text|| '0' %></p>
+      <span class="post-section">
       <p class="like-counter"> Likes: <%= post.like_counter|| '0' %></p>
       <p class="comment-counter"> Comments: <%= post.comment_counter|| '0' %></p>
-    </div>
+      </span>
+
+    </span>
+  </div>
   <% end %>
 </section>
