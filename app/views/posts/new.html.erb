@@ -1,4 +1,4 @@
-<section class="post_container">
+<section class="post-container">
   <%= form_with(model: @post, :html => {:class => 'new_post'}, url: user_posts_path, method: :post, local: true) do |form| %>
     <div class="form-group">
       <%= form.label :title, class: 'label' %><br>
