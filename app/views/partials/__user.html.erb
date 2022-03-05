@@ -1,0 +1,5 @@
+<section>
+<%= image_tag @user.photo, class: "user-avatar", size: "128"%>
+<h1> User <%= @user.id %></h1>
+<p class="user-post-counter"> Number of posts: <%= @user.post_counter|| '0' %></p>
+</section>
