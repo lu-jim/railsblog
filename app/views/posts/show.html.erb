@@ -12,6 +12,6 @@
 
 <section class="comment-container">
 <% @post.comments.each do |comment| %>
-<p><% comment.author_id %>: <% comment.text %></p>
+<p><%= User.find(comment.author_id).name %>: <%= comment.text %></p>
 <% end %>
 </section>
