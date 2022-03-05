@@ -84,7 +84,9 @@ h4 {
   display: flex;
   border: 1px solid lightgrey;
   width: 70vw;
-  margin: 1rem;
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+  
   justify-content: space-around;
 }
 
