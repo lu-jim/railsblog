@@ -1,2 +1,27 @@
-<h1> User X</h1>
-<p>Here is an individual user profile</p>
+<%= render 'shared/user' %>
+
+<section id="bio-container">
+<h2>Bio</h2>
+<p><%= @user.bio %></p>
+</section>
+<section id="post-container">
+  <% Post.all.each do |post| %>
+    <div class="post-card">
+    <h2 class="post-title"><a href="<%= @user.id%>/posts/<%= post.id%>"> <%= post.title %> </a></h2>
+    <span>
+      <p><%= post.text|| '0' %></p>
+      <span class="post-counter">
+      <p class="like-counter"> Likes: <%= post.like_counter|| '0' %></p>
+      <p class="comment-counter"> Comments: <%= post.comment_counter|| '0' %></p>
+      </span>
+
+    </span>
+  </div>
+  <div class="post-card">
+  <% post.comments.each do |comment| %>
+<p><%= User.find(comment.author_id).name %>: <%= comment.text %></p>
+<% end %>
+
+  </div>
+  <% end %>
+</section>

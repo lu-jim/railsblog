@@ -1,0 +1,7 @@
+<div class="user-card">
+    <%= image_tag @user.photo, class: "user-avatar"%>
+    <span>
+      <h2 class="user-title"><a href="/users/<%= @user.id%>"> <%= @user.name %> </a></h2>
+      <p class="user-post-counter">Number of posts: <%= @user.post_counter|| '0' %></p>
+    </span>
+  </div>
