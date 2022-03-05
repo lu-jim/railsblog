@@ -1,11 +1,13 @@
 <h1>Users!</h1>
-<p> Here is a list of users</p>
-<section id="user-container">
+<p>Here is a list of users</p>
+<section class="container">
   <% @users.each do |user| %>
-    <div class="user-card"> <h2 class="user-title"><a href="/users/<%= user.id%>">
-      <%= user.name %>
-      </a></h2>
-      <p class="user-post-counter"> Number of posts: <%= user.post_counter|| '0' %></p>
-    </div>
+  <div class="user-card">
+    <%= image_tag user.photo, class: "user-avatar"%>
+    <span>
+      <h2 class="user-title"><a href="/users/<%= user.id%>"> <%= user.name %> </a></h2>
+      <p class="user-post-counter">Number of posts: <%= user.post_counter|| '0' %></p>
+    </span>
+  </div>
   <% end %>
 </section>
