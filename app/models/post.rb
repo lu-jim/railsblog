@@ -5,7 +5,6 @@ class Post < ApplicationRecord
 
   after_save :update_post_counter
 
-
   private
 
   def update_post_counter
