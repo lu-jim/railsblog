@@ -22,10 +22,15 @@
       </div>
     <% end %>
     <a href=<%= new_user_post_comment_path(@user, @post) %> class="comment_link">
-      Comment
+      Create new comment
     </a>
-    <%= form_with model: @like, url: user_post_likes_path(@user, @post), method: :post, local: true do |f| %>
-      <%= f.submit "Like", class: 'submit' %>
+    <%= form_with model: @comment, url: user_post_comments_path(@user, @post), method: :post, local: true do |form| %>
+      <%= form.label "Comment" %>
+      <%= form.text_area "Comment", class: 'submit' %>
+      <%= form.submit "Submit", class: 'submit' %>
+    <% end %>
+    <%= form_with model: @like, url: user_post_likes_path(@user, @post), method: :post, local: true do |form| %>
+      <%= form.submit "Like", class: 'submit' %>
     <% end %>
   </div>
 </section>

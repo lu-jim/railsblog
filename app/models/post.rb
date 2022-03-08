@@ -5,9 +5,6 @@ class Post < ApplicationRecord
 
   after_save :update_post_counter
 
-  def comment_list
-    comments
-  end
 
   private
 

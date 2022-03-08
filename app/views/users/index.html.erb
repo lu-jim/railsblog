@@ -14,3 +14,19 @@
   </div>
   <% end %>
 </section>
+
+<section class="container">
+<div class="user-interaction">
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <a href=<%= new_user_path(@user) %> class="user-link">
+      Create new user
+    </a>
+    <%= form_with model: @user, url: path(@user), method: :post, local: true do |form| %>
+      <%= form.submit "Create Post", class: 'submit' %>
+    <% end %>
+  </div>
+</section>
