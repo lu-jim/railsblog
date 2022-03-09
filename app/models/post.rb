@@ -8,6 +8,6 @@ class Post < ApplicationRecord
   private
 
   def update_post_counter
-    author.update(post_counter: Post.all.length)
+    author.update(post_counter: author.posts.length)
   end
 end
