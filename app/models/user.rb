@@ -4,6 +4,6 @@ class User < ApplicationRecord
   has_many :comments
 
   def latest_posts
-    @post.order(:created_at).last(3)
+    Post.where('author_id=?', params[:author_id]).order(:created_at).last(3)
   end
 end
