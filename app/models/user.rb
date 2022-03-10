@@ -4,6 +4,6 @@ class User < ApplicationRecord
   has_many :comments
 
   def latest_posts
-    Post.last(3)
+    posts.order(created_at: :desc).limit(3)
   end
 end

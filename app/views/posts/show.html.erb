@@ -15,4 +15,23 @@
 <% @post.comments.each do |comment| %>
 <p><%= User.find(comment.author_id).name %>: <%= comment.text %></p>
 <% end %>
+<div class="user-interaction">
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <a href=<%= new_user_post_comment_path(@author, @post) %> class="comment_link">
+      Create new comment
+    </a>
+    <%= form_with model: @comment, url: user_post_comments_path(@author, @post), method: :post, local: true do |form| %>
+      <%= form.label :text %>
+      <%= form.text_area :text, class: 'submit' %>
+      <%= form.submit "Submit", class: 'submit' %>
+    <% end %>
+    <%= form_with model: @like, url: user_post_likes_path(@author, @post), method: :post, local: true do |form| %>
+      <%= form.submit "Like", class: 'submit' %>
+    <% end %>
+  </div>
+</section>
 </section>

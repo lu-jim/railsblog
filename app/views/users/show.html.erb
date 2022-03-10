@@ -18,10 +18,11 @@
     </span>
   </div>
   <div class="post-card">
+  <div class="comment-container">
   <% post.comments.each do |comment| %>
-<p><%= User.find(comment.author_id).name %>: <%= comment.text %></p>
+<p><%= User.find(comment.author_id).name ||'' %>: <%= comment.text ||'Be the first to submit a comment' %></p>
 <% end %>
-
+</div>
   </div>
   <% end %>
 </section>

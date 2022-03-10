@@ -1,0 +1,12 @@
+<div class="post-container">
+  <%= form_with(model: @comment, :html => {:class => 'new_post'}, url: user_post_comments_path, method: :post, local: true) do |form| %>
+
+    <div class="form-group">
+      <%= form.label :text, class: 'label' %><br>
+      <%= form.text_area :text, class: 'field' %>
+    </div>
+
+    <%= form.submit "Comment", class: 'submit' %>
+
+  <% end %>
+</div>
