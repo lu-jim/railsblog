@@ -1,7 +1,10 @@
-<div class="user-card">
+<div class="card flex justify-center p-2">
+  <div class="card-body flex justify-between">
     <%= image_tag @user.photo, class: "user-avatar"%>
     <span>
-      <h2 class="user-title"><a href="/users/<%= @user.id%>"> <%= @user.name %> </a></h2>
+<h4 class="user-title"><a href="/users/<%= @user.id%>"> <%= @user.name %> </a></h4>
       <p class="user-post-counter">Number of posts: <%= @user.post_counter|| '0' %></p>
     </span>
+
+    </div>
   </div>
