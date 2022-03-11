@@ -1,9 +1,9 @@
-<div class="card flex justify-center p-2">
-  <div class="card-body flex justify-between">
-    <%= image_tag @user.photo, class: "user-avatar"%>
-    <span>
-<h4 class="user-title"><a href="/users/<%= @user.id%>"> <%= @user.name %> </a></h4>
-      <p class="user-post-counter">Number of posts: <%= @user.post_counter|| '0' %></p>
+<div class="card flex justify-center p-2 my-2">
+  <div class="card-body flex">
+    <%= image_tag user.photo, class: "user-avatar"%>
+    <span class="px-4">
+<h4 class="user-title"><a href="/users/<%= user.id%>"> <%= user.name %> </a></h4>
+      <p class="user-post-counter">Number of posts: <%= user.post_counter|| '0' %></p>
     </span>
 
     </div>
