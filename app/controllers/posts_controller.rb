@@ -17,15 +17,25 @@ class PostsController < ApplicationController
     @author = User.find(params[:author_id])
     @post = Post.new(post_params)
     @post.author = @author
-    if @post.save
-      redirect_to user_post_url({ user_id: @author.id, id: @post.id })
-      flash[:success] = 'Post created successfully'
-    else
-      render :new, flash: { error: 'Please make sure your post is valid' }
+
+    respond_to do |format|
+      if @post.save
+        format.html
+        redirect_to post_url({ user_id: @author.id, id: @post.id }),
+                    flash[:success] = 'Post created successfully'
+        format.json { render :show, status: :created, location: @post }
+      else
+        format.html { render :new, flash: { error: 'Please make sure your post is valid' } }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   private
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
   def post_params
     params.require(:comment).permit(:text)
