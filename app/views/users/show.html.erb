@@ -2,14 +2,17 @@
 <%= render 'shared/user', user: @user%>
 </div>
 
-<section class="container pt-3">
-<h2>Bio</h2>
+<section class="container py-2 my-3">
+<div class=" card px-4 py-2">
+<h4>Bio</h4>
 <p><%= @user.bio %></p>
+</div>
+
 </section>
 <section class="container">
   <% @posts.each do |post| %>
     <div class="card py-2 px-4">
-    <h2 class="post-title"><a href="<%= post.author_id%>/posts/<%= post.id%>"> <%= post.title %> </a></h2>
+    <h4 class="post-title"><a href="<%= post.author_id%>/posts/<%= post.id%>"> <%= post.title %> </a></h4>
     <span>
       <p><%= post.text|| '0' %></p>
       <span class="flex flex-row-reverse">
