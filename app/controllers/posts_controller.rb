@@ -4,8 +4,8 @@ class PostsController < ApplicationController
   end
 
   def index
-    @author = User.find(params[:user_id])
-    @posts = @author.posts
+    @user = User.find(params[:author_id])
+    @posts = Post.where(author_id: params[:id])
   end
 
   def show
@@ -14,7 +14,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @author = User.find(params[:user_id])
+    @author = User.find(params[:author_id])
     @post = Post.new(post_params)
     @post.author = @author
     if @post.save
