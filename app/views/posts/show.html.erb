@@ -12,7 +12,7 @@
 
 <section class="comment-container">
 <h3> Comments </h3>
-<% @post.comments.each do |comment| %>
+<% @post.recent_comments.each do |comment| %>
 <p><%= User.find(comment.author_id).name %>: <%= comment.text %></p>
 <% end %>
 <div class="user-interaction">
