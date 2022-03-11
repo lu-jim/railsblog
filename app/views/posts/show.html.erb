@@ -1,38 +1,44 @@
-<section class="post-container">
-<div class="post-header">
-<span><span>
-<h2><%= @post.title %> by <%= @post.author.name %></h2>
-<p class="post-header">
-<p class="counter"> Comments: <%= @post.comment_counter|| '0' %></p>
-<p class="counter"> Likes: <%= @post.like_counter|| '0' %></p>
-</p>
- </div>
+<section class="container">
+  <div class="post-header">
+    <h2>
+      <%= @post.title %> by <%= @post.author.name %>
+    </h2>
+    <span class="flex flex-row-reverse">
+      <p class="counter mx-2"> Likes: <%= @post.like_counter|| '0' %>
+      </p>
+      <p class="counter"> Comments: <%= @post.comment_counter|| '0' %>
+      </p>
+    </span>
+  </div>
 
-<p><%=@post.text%></p>
+  <p>
+    <%=@post.text%>
+  </p>
+  <h3> Comments </h3>
+  <%= render 'shared/comments' , comments: @post.comments%>
 </section>
 
-<section class="p-2">
-<h3> Comments </h3>
-<% @post.comments.each do |comment| %>
-<p><%= User.find(comment.author_id).name %>: <%= comment.text %></p>
-<% end %>
-<div class="user-interaction">
+<section class="container">
+  <div class="user-interaction">
     <% flash.each do |type, msg| %>
       <div>
         <%= msg %>
       </div>
     <% end %>
-    <a href=<%= new_user_post_comment_path(@author, @post) %> class="comment_link">
-      Create new comment
-    </a>
-    <%= form_with model: @comment, url: user_post_comments_path(@author, @post), method: :post, local: true do |form| %>
-      <%= form.label :text %>
-      <%= form.text_area :text, class: 'submit' %>
-      <%= form.submit "Submit", class: 'submit' %>
+
+
+    <%= form_with model: @comment, url: user_post_comments_path(@author, @post), method: :post, local: true do
+      |form| %>
+      <div class="flex flex-column">
+    <%= form.label :text, "Create comment", class: 'form-label' %>
+    <%= form.text_area :text, class: 'submit form-text mb-3' %>
+      </div>
+      <%= form.submit "Submit Comment" , class: 'submit btn btn-primary  mb-3' %>
+
     <% end %>
-    <%= form_with model: @like, url: user_post_likes_path(@author, @post), method: :post, local: true do |form| %>
-      <%= form.submit "Like", class: 'submit' %>
+    <%= form_with model: @like, url: user_post_likes_path(@author, @post), method: :post, local: true do
+      |form| %>
+      <%= form.submit "Like" , class: 'submit btn btn-primary' %>
     <% end %>
   </div>
-</section>
 </section>

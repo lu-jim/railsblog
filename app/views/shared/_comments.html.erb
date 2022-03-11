@@ -1,7 +1,7 @@
 <div class="card mt-2 mb-4">
   <div class="px-4 py-2">
   <% comments.each do |comment| %>
-    <p><%= User.find(comment.author_id).name ||'' %>: <%= comment.text ||'Be the first to submit a comment' %></p>
+    <p class="fs-6"><%= User.find(comment.author_id).name ||'' %>: <%= comment.text ||'Be the first to submit a comment' %></p>
   <% end %>
   </div>
   </div>
