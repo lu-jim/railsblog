@@ -13,22 +13,15 @@
   <% @posts.each do |post| %>
     <div class="card py-2 px-4">
     <h4 class="post-title"><a href="<%= post.author_id%>/posts/<%= post.id%>"> <%= post.title %> </a></h4>
-    <span>
+    <div>
       <p><%= post.text|| '0' %></p>
       <span class="flex flex-row-reverse">
       <p class="counter mx-2"> Likes: <%= post.like_counter|| '0' %></p>
       <p class="counter"> Comments: <%= post.comment_counter|| '0' %></p>
       </span>
 
-    </span>
-  </div>
-  <div class="card mt-2 mb-4">
-  <div class="px-4 py-2">
-
-  <% post.comments.each do |comment| %>
-    <p><%= User.find(comment.author_id).name ||'' %>: <%= comment.text ||'Be the first to submit a comment' %></p>
-  <% end %>
-  </div>
-  </div>
+      </div>
+    </div>
+    <%= render 'shared/comments', comments: post.comments%>
   <% end %>
 </section>
