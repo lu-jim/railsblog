@@ -22,7 +22,7 @@ To get a local copy up and running follow these simple steps.
 - Type `git clone`, and then paste the URL copied in the Setup section.
 - Type Enter and then enter `cd railsblog` to enter into the project directory.
 - Run `bundle` to install the required dependencies
-- Run `rails db:setup` to run the proper migrations and generate the app schema
+- Run `rails db:create` and `rails db:migrate` to run the proper migrations and generate the app schema
 
 ## Run
 - Enter `rails s` to run the app server
