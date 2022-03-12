@@ -19,7 +19,7 @@ class PostsController < ApplicationController
     @post = @author.posts.new(post_params)
     @post.comment_counter = 0
     @post.like_counter = 0
-    
+
     respond_to do |format|
       if @post.save
 
