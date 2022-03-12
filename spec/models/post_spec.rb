@@ -20,6 +20,22 @@ RSpec.describe Post, type: :model do
     expect(subject).to be_valid
   end
 
+  it 'recent_comments returns 5 comments' do
+    subject.comments.create(post: subject, author: @user, text: 'Hi Tom! 1')
+    subject.comments.create(post: subject, author: @user, text: 'Hi Tom! 2')
+    subject.comments.create(post: subject, author: @user, text: 'Hi Tom! 3')
+    subject.comments.create(post: subject, author: @user, text: 'Hi Tom! 4')
+    subject.comments.create(post: subject, author: @user, text: 'Hi Tom! 5')
+    subject.comments.create(post: subject, author: @user, text: 'Hi Tom! 6')
+    expect(subject.recent_comments.length).to equal(5)
+  end
+
+  it 'recent_comments returns the latests post first' do
+    subject.comments.create(post: subject, author: @user, text: 'Hi Tom! 1')
+    subject.comments.create(post: subject, author: @user, text: 'Hi Tom! 2')
+    expect(subject.recent_comments[0].text).to eq('Hi Tom! 2')
+  end
+
   it 'should not save without a title' do
     subject.title = nil
     expect(subject).to_not be_valid
