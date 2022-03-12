@@ -25,11 +25,6 @@
     <%= render 'shared/comments', comments: post.recent_comments%>
   <% end %>
 </section>
-<section class="container">
-<div class="card">
-  <div class="card-body">
-    <h5 class="card-title serif fw-bold">Add Post</h5>
-    <a class="btn btn-primary btn-md " href="/"   role="button">Create New Post</a>
-  </div>
-</div>
+<section class="container text-center">
+<%= link_to "Create New Post", new_user_post_url(author=@user), class:"btn btn-primary btn-md" %>
 <section>

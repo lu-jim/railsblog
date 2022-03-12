@@ -1,8 +1,7 @@
-<%= form_with(model:post) do |form| %>
+<%= form_with(model:post, :html => {:class => 'new_post'}, url: user_posts_path, method: :post, local: true) |form| %>
 <% if post.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
       <ul>
         <% post.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -17,6 +16,6 @@
     <%= form.label :text, "Content", class: 'form-label' %>
     <%= form.text :text, class: 'submit form-text mb-3' %>
   </div>
-  <%= form.submit "Submit Comment" , class: 'submit btn btn-primary  mb-3' %>
+  <%= form.submit "Submit Post" , class: 'submit btn btn-primary  mb-3' %>
 
 <% end %>
