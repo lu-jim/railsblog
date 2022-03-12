@@ -17,11 +17,10 @@ class PostsController < ApplicationController
   def create
     @author = current_user
     @post = @author.posts.new(post_params)
-    @post.author = @author
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to user_url(@author), flash[:notice] = 'Post created successfully.' }
+        format.html { redirect_to user_url(@author), flash: { success: 'Post created successfully.' } }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new, flash: { error: 'Please make sure your post is valid' } }

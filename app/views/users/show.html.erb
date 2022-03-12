@@ -1,5 +1,12 @@
 <div class="container">
 <%= render 'shared/user', user: @user%>
+  <% flash.each do |type, msg| %>
+      <div class="alert alert-<%= type %>">
+        <%= type %>
+        <%= msg %>
+      </div>
+    <% end %>
+
 </div>
 
 <section class="container py-2 my-3">
@@ -10,7 +17,9 @@
 
 </section>
 <section class="container">
-  <% @posts.each do |post| %>
+<% posts = @posts if @all=="true"%>
+<% posts = @user.recent_posts unless @all=="true"%>
+  <% posts.each do |post|%>
     <div class="card py-2 px-4">
     <h4 class="post-title"><a href="<%= post.author_id%>/posts/<%= post.id%>" class="text-decoration-none"> <%= post.title %> </a></h4>
     <div>
@@ -26,5 +35,7 @@
   <% end %>
 </section>
 <section class="container text-center">
+<%= link_to "See all posts", user_url(author=@user, :all=> "true"), class:"btn btn-primary btn-md" unless @all=="true"%>
+<%= link_to "See less", user_url(author=@user, :all=> ""), class:"btn btn-secondary btn-md" if @all=="true"%>
 <%= link_to "Create New Post", new_user_post_url(author=@user), class:"btn btn-primary btn-md" %>
 <section>
