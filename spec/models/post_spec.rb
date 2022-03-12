@@ -19,7 +19,7 @@ RSpec.describe Post, type: :model do
 
   it 'should not save without a title' do
     subject.title = nil
-    expect(subject).to_be false
+    expect(subject).to_not be_valid
   end
 
   it 'is not valid with a long title' do
