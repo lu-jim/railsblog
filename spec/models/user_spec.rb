@@ -15,6 +15,13 @@ RSpec.describe User, type: :model do
   it 'is valid with valid attributes' do
     expect(subject).to be_valid
   end
+  it 'recent_posts returns the three most recent posts' do
+    Post.create(author: subject, title: 'Hello 1', text: 'This is my first  post', like_counter: 0, comment_counter: 0)
+    Post.create(author: subject, title: 'Hello 2', text: 'This is my second  post', like_counter: 0, comment_counter: 0)
+    Post.create(author: subject, title: 'Hi 3', text: 'This is my third post', like_counter: 0, comment_counter: 0)
+    Post.create(author: subject, title: 'Hi 4', text: 'This is my fourth post', like_counter: 0, comment_counter: 0)
+    expect(subject.recent_posts.length).to equal(3)
+  end
 
   it 'is not valid without a name' do
     subject.name = nil
