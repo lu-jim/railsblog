@@ -9,12 +9,13 @@ class PostsController < ApplicationController
   end
 
   def show
+    @current_user = current_user
     @author = User.find(params[:user_id])
     @post = Post.find(params[:id])
   end
 
   def create
-    @author = User.find(params[:user_id])
+    @author = current_user
     @post = Post.new(post_params)
     @post.author = @author
 
