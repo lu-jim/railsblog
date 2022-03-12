@@ -1,5 +1,16 @@
 <section class="post-container">
   <h4> New Post</h4>
+  <% if @post.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% @post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <%= render "form", post: @post, author: @user%>
   <div>
     <%= link_to "Back to user", user_posts_path %>

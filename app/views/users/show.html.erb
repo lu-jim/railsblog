@@ -2,7 +2,6 @@
 <%= render 'shared/user', user: @user%>
   <% flash.each do |type, msg| %>
       <div class="alert alert-<%= type %>">
-        <%= type %>
         <%= msg %>
       </div>
     <% end %>
