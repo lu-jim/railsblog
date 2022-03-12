@@ -12,7 +12,7 @@
 <section class="container">
   <% @posts.each do |post| %>
     <div class="card py-2 px-4">
-    <h4 class="post-title"><a href="<%= post.author_id%>/posts/<%= post.id%>"> <%= post.title %> </a></h4>
+    <h4 class="post-title"><a href="<%= post.author_id%>/posts/<%= post.id%>" class="text-decoration-none"> <%= post.title %> </a></h4>
     <div>
       <p><%= post.text|| '0' %></p>
       <span class="flex flex-row-reverse">
@@ -25,3 +25,6 @@
     <%= render 'shared/comments', comments: post.recent_comments%>
   <% end %>
 </section>
+<section class="container text-center">
+<%= link_to "Create New Post", new_user_post_url(author=@user), class:"btn btn-primary btn-md" %>
+<section>
