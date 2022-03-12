@@ -17,6 +17,8 @@ class PostsController < ApplicationController
     @author = User.find(params[:author_id])
     @post = Post.new(post_params)
     @post.author = @author
+    @post.comments = 0
+    @post.likes = 0
 
     respond_to do |format|
       if @post.save

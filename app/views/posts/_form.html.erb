@@ -1,15 +1,4 @@
-<%= form_with(model:post, :html => {:class => 'new_post'}, url: user_posts_path, method: :post, local: true) |form| %>
-<% if post.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-      <ul>
-        <% post.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_with model: [@user, @post], url: user_post_path(@user), local: true do |form| %>
   <div class="flex flex-column">
     <%= form.label :title, class: 'form-label' %>
     <%= form.text :title, class: 'form-text mb-3' %>
@@ -17,5 +6,4 @@
     <%= form.text :text, class: 'submit form-text mb-3' %>
   </div>
   <%= form.submit "Submit Post" , class: 'submit btn btn-primary  mb-3' %>
-
 <% end %>
