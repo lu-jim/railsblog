@@ -11,7 +11,7 @@ class LikesController < ApplicationController
 
     if Like.where(author: @user, post: @post.id).present?
       redirect_to user_post_url(author_id: @user.id, id: @post.id)
-      flash[:error] = 'Post already liked'
+      flash[:danger] = 'Post already liked'
     else
       @like.save
       redirect_to user_post_url(author_id: @user.id, id: @post.id)

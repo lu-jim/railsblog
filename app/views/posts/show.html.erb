@@ -21,7 +21,7 @@
 <section class="container">
   <div class="user-interaction">
     <% flash.each do |type, msg| %>
-      <div>
+      <div class="alert alert-<%= type %>">
         <%= msg %>
       </div>
     <% end %>
