@@ -1,6 +1,6 @@
 <section class="post-container">
   <h4> New Post</h4>
-  <%= render "form", post: @post %>
+  <%= render "form", post: @post, author: @user%>
   <div>
     <%= link_to "Back to user", user_posts_path %>
   </div>

@@ -14,17 +14,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    @author = User.find(params[:author_id])
+    @author = User.find(params[:user_id])
     @post = Post.new(post_params)
     @post.author = @author
-    @post.comments = 0
-    @post.likes = 0
 
     respond_to do |format|
       if @post.save
-        format.html
-        redirect_to post_url({ user_id: @author.id, id: @post.id }),
-                    flash[:success] = 'Post created successfully'
+        format.html { redirect_to user_url(@author), notice: 'Post created successfully.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new, flash: { error: 'Please make sure your post is valid' } }
@@ -40,6 +36,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:comment).permit(:text)
+    params.require(:post).permit(:title, :text)
   end
 end

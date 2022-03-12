@@ -1,9 +1,9 @@
-<%= form_with model: [@user, @post], url: user_post_path(@user), local: true do |form| %>
+<%= form_with model: post, url: user_posts_path, local: true do |form| %>
   <div class="flex flex-column">
     <%= form.label :title, class: 'form-label' %>
-    <%= form.text :title, class: 'form-text mb-3' %>
+    <%= form.text_field :title, class: 'form-text mb-3' %>
     <%= form.label :text, "Content", class: 'form-label' %>
-    <%= form.text :text, class: 'submit form-text mb-3' %>
+    <%= form.text_area :text, class: 'submit form-text mb-3' %>
   </div>
   <%= form.submit "Submit Post" , class: 'submit btn btn-primary  mb-3' %>
 <% end %>
