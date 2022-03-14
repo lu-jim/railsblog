@@ -4,6 +4,14 @@
 </header>
 
 <section class="container">
+<% flash.each do |type, msg| %>
+      <div class="alert alert-<%= type %>">
+        <%= msg %>
+      </div>
+    <% end %>
+</section>
+
+<section class="container">
   <% @users.each do |user| %>
   <%= render 'shared/user', user: user %>
   <% end %>
