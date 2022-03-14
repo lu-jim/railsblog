@@ -6,10 +6,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-      <form class="d-flex ms-auto     ">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      <div class="d-flex ms-auto     ">
+        <%= button_to "logout", destroy_user_session_path, method: :delete  %>
+      </div>
     </div>
   </div>
 </nav>
