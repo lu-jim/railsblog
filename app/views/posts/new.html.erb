@@ -1,4 +1,4 @@
-<section class="post-container">
+<section class="container">
   <h4> New Post</h4>
   <% if @post.errors.any? %>
     <div style="color: red">
@@ -11,9 +11,11 @@
       </ul>
     </div>
   <% end %>
-  <%= render "form", post: @post, author: @user%>
+
+<%= render "form", post: @post, author: @user%>
+
   <div>
-    <%= link_to "Back to user", user_posts_path %>
+    <%= link_to "Back to user", user_posts_path, class: "btn btn-danger"%>
   </div>
 </section>
 

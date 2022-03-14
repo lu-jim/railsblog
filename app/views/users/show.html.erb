@@ -1,5 +1,5 @@
 <div class="container">
-<%= render 'shared/user', user: @user%>
+  <%= render 'shared/user', user: @user%>
   <% flash.each do |type, msg| %>
       <div class="alert alert-<%= type %>">
         <%= msg %>
