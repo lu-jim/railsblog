@@ -21,6 +21,9 @@
   <% posts.each do |post|%>
     <div class="card py-2 px-4">
     <h4 class="post-title"><a href="<%= post.author_id%>/posts/<%= post.id%>" class="text-decoration-none"> <%= post.title %> </a></h4>
+    <%# <%= button_to "Delete Post", user_post_path(post), method: :delete %>
+    <%# <%= button_to "Destroy this post", post, method: :delete %>
+    <%= button_to "Delete", user_post_path(post.author_id, post.id), method: :delete %>
     <div>
       <p><%= post.text|| '0' %></p>
       <span class="flex flex-row-reverse">
