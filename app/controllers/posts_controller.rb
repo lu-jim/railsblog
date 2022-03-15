@@ -32,6 +32,12 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    # @post =Post.find(params[:id])
+    @post.destroy
+    format.html { redirect_to user_url(@author), flash: { success: 'Post deleted successfully.' } }
+  end
+
   private
 
   def set_post
