@@ -24,11 +24,12 @@
     <div>
       <p><%= post.text|| '0' %></p>
       <span class="flex flex-row-reverse">
-      <%= button_to "Delete", user_post_path(post.author_id, post.id), method: :delete, class:"btn btn-danger btn-sm" %>
+      <% if can? :destroy, post %>
+        <%= button_to "Delete", user_post_path(post.author_id, post.id), method: :delete, class:"btn btn-danger btn-sm" %>
+      <% end %>
       <p class="counter mx-2"> Likes: <%= post.like_counter|| '0' %></p>
       <p class="counter"> Comments: <%= post.comment_counter|| '0' %></p>
       </span>
-
       </div>
     </div>
     <%= render 'shared/comments', comments: post.recent_comments%>
