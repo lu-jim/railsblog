@@ -3,8 +3,14 @@
   <% if comments.empty? %>
     <p class="fs-6"> No comments yet </p>
   <% end %>
-  <% comments.each do |comment| %>
+  <% comments.includes([:author]).each do |comment| %>
+    <div class="flex justify-content-between">
     <p class="fs-6"><%= User.find(comment.author_id).name ||'' %>: <%= comment.text ||'Be the first to submit a comment' %></p>
+    <% if can? :destroy, comment%>
+      <%= button_to "Delete", user_post_comment_path(comment.author_id, comment.post_id, comment.id), method: :delete, class:"btn btn-danger btn-sm" %>
+    <% end %>
+    </div>
+
   <% end %>
   </div>
   </div>

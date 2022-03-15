@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+
   def new
     @post = Post.new
   end
@@ -30,6 +32,13 @@ class PostsController < ApplicationController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    flash.now[:success] = 'Post deleted successfully.'
+    redirect_to root_path
   end
 
   private
