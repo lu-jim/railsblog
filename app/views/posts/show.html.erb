@@ -15,7 +15,7 @@
     <%=@post.text%>
   </p>
   <h3> Comments </h3>
-  <%= render 'shared/comments' , comments: @post.comments%>
+  <%= render 'shared/comments' , comments: @post.comments, post: @post %>
 </section>
 
 <section class="container">

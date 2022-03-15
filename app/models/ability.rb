@@ -9,6 +9,7 @@ class Ability
       can :manage, :all
     elsif user.is? :user
       can :manage, Post, author: user
+      can :manage, Comment, author: user
     else
       can :read, :all
     end
