@@ -10,6 +10,7 @@ class Ability
     elsif user.is? :user
       can :manage, Post, author: user
       can :manage, Comment, author: user
+      can :read, :all
     else
       can :read, :all
     end
