@@ -3,6 +3,7 @@ class Comment < ApplicationRecord
   belongs_to :author, class_name: 'User'
 
   after_save :update_comment_counter
+  after_destroy :update_comment_counter
 
   private
 
