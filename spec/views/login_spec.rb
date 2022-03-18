@@ -10,4 +10,5 @@ RSpec.describe 'Login page', type: :system do
     before :each do
       visit '/users/sign_in'
     end
+  end
 end
