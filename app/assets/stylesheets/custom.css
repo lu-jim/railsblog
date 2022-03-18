@@ -14,7 +14,7 @@
  *= require_self
  */
 @import 'bootstrap';
-@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400;700&family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Source+Sans+Pro:wght@400;700;900&display=swap');
 /* Custom bootstrap variables must be set or imported *before* bootstrap. */
 body {
   background-color: #f6f6f6;
@@ -46,7 +46,7 @@ h3,
 h4 {
   font-family: Bitter, 'Lucida Bright', Lucidabright, 'Lucida Serif', Lucida, 'DejaVu Serif', 'Bitstream Vera Serif', 'Liberation Serif', Georgia,
     serif;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .user-avatar {
@@ -122,4 +122,8 @@ h4 {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+}
+
+.login {
+  height: 75vh;
 }
