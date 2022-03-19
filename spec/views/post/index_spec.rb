@@ -19,7 +19,7 @@ RSpec.describe 'user show', type: :system do
       fill_in 'Password', with: '123123'
     end
     click_button 'Log in'
-    visit 'users/1'
+    visit 'users/1/posts'
   end
 
   it 'shows profile picture', js: true do

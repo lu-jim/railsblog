@@ -19,7 +19,7 @@
   <% @posts.each do |post|%>
     <div class="card py-2 px-4">
     <h4 class="post-title">
-    <a href="<%= post.author_id%>/posts/<%= post.id%>" class="text-decoration-none"> <%= post.title %> </a>
+    <a href="/users/<%= post.author_id%>/posts/<%= post.id%>" class="text-decoration-none"> <%= post.title %> </a>
 
     </h4>
     <div>
