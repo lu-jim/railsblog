@@ -7,7 +7,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = Post.where(author_id: params[:id]).order(created_at: :desc)
-    @all = params[:all] unless params[:all].nil?
+    @posts = @user.recent_posts.includes([:author]).order(created_at: :desc)
   end
 end
