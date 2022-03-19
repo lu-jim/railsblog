@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'The login process', type: :system do
+RSpec.describe 'User index', type: :system do
   before :each do
     User.create!(id: 1, name: 'Tom', email: 'tomrails@mailinator.com',
                  photo: 'https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80',
