@@ -13,7 +13,12 @@ RSpec.describe 'The login process', type: :system do
     expect(page).to have_content('Log in')
   end
 
-  it 'gets a detailed error if I fill in invalid data', js: true do
+  it 'gets a detailed error if I do not fill in data ', js: true do
+    click_button 'Log in'
+    expect(page).to have_content('Invalid Email or password.')
+  end
+
+  it 'gets a detailed error if I fill in incorrect data', js: true do
     fill_in 'Email', with: 'tomrails@mailinator.com'
     fill_in 'Password', with: 'password'
     click_button 'Log in'
