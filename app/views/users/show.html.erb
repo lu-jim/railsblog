@@ -13,12 +13,10 @@
 <h4>Bio</h4>
 <p><%= @user.bio %></p>
 </div>
-
 </section>
+
 <section class="container">
-<% posts = @posts if @all=="true"%>
-<% posts = @user.recent_posts unless @all=="true"%>
-  <% posts.each do |post|%>
+  <% @posts.each do |post|%>
     <div class="card py-2 px-4">
     <h4 class="post-title"><a href="<%= post.author_id%>/posts/<%= post.id%>" class="text-decoration-none"> <%= post.title %> </a></h4>
     <div>
@@ -36,6 +34,5 @@
   <% end %>
 </section>
 <section class="container text-center mb-4">
-<%= link_to "See all posts", user_url(author=@user, :all=> "true"), class:"btn btn-primary btn-md" unless @all=="true"%>
-<%= link_to "See less", user_url(author=@user, :all=> ""), class:"btn btn-danger btn-md" if @all=="true"%>
+<%= link_to "See all posts", user_posts_path(user_id: @user.id), class:"btn btn-primary btn-md"%>
 <section>
