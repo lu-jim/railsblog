@@ -50,7 +50,7 @@ RSpec.describe 'user show', type: :system do
     expect(page).to have_content('Comments: ')
   end
 
-  it 'shows the number of comments', js: true do
+  it 'shows the number of likes', js: true do
     expect(page).to have_content('Likes: ')
   end
 
