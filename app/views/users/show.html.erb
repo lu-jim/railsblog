@@ -33,6 +33,6 @@
     <%= render 'shared/comments', comments: post.recent_comments%>
   <% end %>
 </section>
-<section class="container text-center mb-4">
+<section id="see-all" class="container text-center mb-4">
 <%= link_to "See all posts", user_posts_path(user_id: @user.id), class:"btn btn-primary btn-md"%>
 <section>

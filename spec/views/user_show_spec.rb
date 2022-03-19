@@ -44,4 +44,11 @@ RSpec.describe 'user show', type: :system do
   it 'can show all posts', js: true do
     expect(page).to have_content('See all posts')
   end
+
+  it 'sends me to the user post index page when clicking see all posts', js: true do
+    within('#see-all') do
+      click_link 'See all posts'
+    end
+    expect(page).to have_current_path('/users/1/posts')
+  end
 end
